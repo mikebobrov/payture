@@ -21,7 +21,7 @@ module Payture
       auth_options.merge!(password: password) if password_required
 
       Faraday::Connection.new(options) do |connection|
-        connection.use FaradayMiddleware::PaytureAuth, auth_options if auth
+        connection.use FaradayMiddleware::PaytureAuth, auth_options if (auth || password_required)
         connection.use Faraday::Request::UrlEncoded
         connection.use FaradayMiddleware::Mashify unless raw
         connection.use FaradayMiddleware::Underscore unless raw

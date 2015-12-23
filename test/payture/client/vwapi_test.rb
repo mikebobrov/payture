@@ -361,5 +361,21 @@ module Payture
       end
     end
 
+    describe '.pay_submit3_d_s' do
+      let(:options) {
+        {
+            'PaRes' => 'PaResTest',
+            'MD' => 'MdTest'
+        }
+      }
+      subject { client.pay_submit3_d_s options }
+
+      it "returns success status" do
+        VCR.use_cassette('pay/existing_user/pay_submit3_d_s') do
+          subject.success.must_equal "True"
+        end
+      end
+    end
+
   end
 end

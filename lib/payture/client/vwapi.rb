@@ -32,8 +32,7 @@ module Payture
       end
 
       def pay_submit3_d_s(options={})
-        options = hash_to_camelcase(options)
-        response = connection({auth: false}).get do |request|
+        response = connection({auth: false }).get do |request|
           request.url('PaySubmit3DS', options)
         end
         Response.create(response.body).pay
