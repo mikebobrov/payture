@@ -13,7 +13,8 @@ module Payture
       :password,
       :format,
       :user_agent,
-      :adapter
+      :adapter,
+      :log_enabled
     ].freeze
 
 
@@ -53,6 +54,7 @@ module Payture
       self.password = DEFAULT_PASSWORD
       self.user_agent = DEFAULT_USER_AGENT
       self.format = DEFAULT_FORMAT
+      self.log_enabled = false
     end
   end
 end

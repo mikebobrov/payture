@@ -34,6 +34,7 @@ module Payture
           end
         end
         connection.use FaradayMiddleware::RaiseHttpException
+        connection.response :logger if log_enabled
         connection.adapter(adapter)
       end
     end
