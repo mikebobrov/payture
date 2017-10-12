@@ -36,7 +36,8 @@ module Payture
 
     def encoded_string hash
       h = convert_to_camelcase hash
-      CGI.escape h.join(';')
+      # CGI.escape h.join(';')
+      h.join(';')
     end
 
     def convert_to_camelcase hash
